@@ -373,8 +373,8 @@ def captureGraph(G, nodeColors, edgeColors, weighted):
 
 
 def captureDataFrame(df):
-    dfi.export(df, f"static/output/data{PLOTNO}.png")
-    # save_df_as_image(df, f"static/output/data{PLOTNO}.png")
+    # dfi.export(df, f"static/output/data{PLOTNO}.png")
+    save_df_as_image(df, f"static/output/data{PLOTNO}.png")
 
 
 def save_df_as_image(df, path):
