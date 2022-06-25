@@ -59,6 +59,8 @@ def simulateGraph(request):
             return
 
     print(g)
-
+    dir = 'static/output'
+    for f in os.listdir(dir):
+        os.remove(os.path.join(dir, f))
 
     simulation.start(g, numberofnodes, algo.lower())
