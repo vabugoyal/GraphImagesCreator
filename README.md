@@ -22,6 +22,3 @@ system and basis, pointing vector, etc.
 
 
 <img width="877" alt="solution" src="https://user-images.githubusercontent.com/89004991/174587676-7be92c7e-c0eb-4b04-917d-0b6c4a5d6771.png">
-
-
-
