@@ -2,8 +2,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
 import collections
-import dataframe_image as dfi
 import heapq
+import matplotlib
+import seaborn as sns
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
@@ -371,4 +372,15 @@ def captureGraph(G, nodeColors, edgeColors, weighted):
 
 
 def captureDataFrame(df):
-    dfi.export(df, f"static/output/data{PLOTNO}.png")
+    save_df_as_image(df, f"static/output/data{PLOTNO}.png")
+
+def save_df_as_image(df, path):
+    # Set background to white
+    norm = matplotlib.colors.Normalize(-1,1)
+    colors = [[norm(-1.0), "white"],
+            [norm( 1.0), "white"]]
+    cmap = matplotlib.colors.LinearSegmentedColormap.from_list("", colors)
+    # Make plot
+    plot = sns.heatmap(df, annot=True, cmap=cmap, cbar=False)
+    fig = plot.get_figure()
+    fig.savefig(path)
