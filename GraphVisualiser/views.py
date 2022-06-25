@@ -1,13 +1,11 @@
 # created by me
 import os
-
 from django.http import HttpResponse
 from django.shortcuts import render
 from . import process
 import tempfile, zipfile
 from django.http import HttpResponse
 from wsgiref.util import FileWrapper
-
 
 
 def solve(request):
