@@ -17,7 +17,7 @@ def solve(request):
     archive = zipfile.ZipFile(temp, 'w', zipfile.ZIP_DEFLATED)
     images = os.listdir('static/output')
     for image in images:
-        fullpath = f'/Users/vaibhavgoyal/Documents/Programming/Python/PycharmProjects/GraphVisualiser/static/output/{image}'
+        fullpath = f'static/output/{image}'
         archive.write(fullpath, image)
 
     archive.close()
