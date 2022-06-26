@@ -240,6 +240,7 @@ class UndirectedGraph:
         for neigh in self.G[self.START_NODE]:
             pq.append((self.G[self.START_NODE][neigh]['weight'], neigh, self.START_NODE))
         visited[self.START_NODE] = True
+        self.nodeColors[self.START_NODE] = CURRENT
         while len(pq) > 0:
             _, u, v = heapq.heappop(pq)
             if visited[u]:
@@ -250,6 +251,7 @@ class UndirectedGraph:
             self.edgeColors[self.idx[(u, v)]] = CURRENT
             captureGraph(self.G, self.nodeColors, self.edgeColors, 1)
             visited[u] = True
+            self.nodeColors[u] = CURRENT
             for v in self.G[u].keys():
                 if (visited[v]): continue
                 l = self.G[u][v]['weight']
