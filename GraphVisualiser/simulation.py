@@ -241,6 +241,7 @@ class UndirectedGraph:
             pq.append((self.G[self.START_NODE][neigh]['weight'], neigh, self.START_NODE))
         visited[self.START_NODE] = True
         self.nodeColors[self.START_NODE] = CURRENT
+        captureGraph(self.G, self.nodeColors, self.edgeColors, 1)
         while len(pq) > 0:
             _, u, v = heapq.heappop(pq)
             if visited[u]:
@@ -367,16 +368,20 @@ def captureGraph(G, nodeColors, edgeColors, weighted):
         nx.draw_networkx_edge_labels(G, pos, edge_labels)
 
     # Set margins for the axes so that nodes aren't clipped
-    ax = plt.gca()
-    ax.margins(0.20)
-    plt.axis("off")
-    plt.savefig(f"static/output/graph{PLOTNO}.png")
-    plt.figure()
+    try:
+        ax = plt.gca()
+        ax.margins(0.20)
+        plt.axis("off")
+        plt.savefig(f"static/output/graph{PLOTNO}.png")
+        plt.figure()
+    except Exception as e:
+        print(e)
 
 
 def captureDataFrame(df):
+    print(df)
     dfi.export(df, f"static/output/data{PLOTNO}.png")
-    save_df_as_image(df, f"static/output/data{PLOTNO}.png")
+    # save_df_as_image(df, f"static/output/data{PLOTNO}.png")
 
 
 def save_df_as_image(df, path):
