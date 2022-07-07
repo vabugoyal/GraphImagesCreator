@@ -249,9 +249,9 @@ class UndirectedGraph:
                 continue
             MSTWeight += _
             self.edgeColors[self.idx[(u, v)]] = CURRENT
+            self.nodeColors[u] = CURRENT
             captureGraph(self.G, self.nodeColors, self.edgeColors, 1)
             visited[u] = True
-            self.nodeColors[u] = CURRENT
             for v in self.G[u].keys():
                 if (visited[v]): continue
                 l = self.G[u][v]['weight']
@@ -375,9 +375,8 @@ def captureGraph(G, nodeColors, edgeColors, weighted):
 
 
 def captureDataFrame(df):
-    pass
-    # dfi.export(df, f"static/output/data{PLOTNO}.png")
-    # save_df_as_image(df, f"static/output/data{PLOTNO}.png")
+    dfi.export(df, f"static/output/data{PLOTNO}.png")
+    save_df_as_image(df, f"static/output/data{PLOTNO}.png")
 
 
 def save_df_as_image(df, path):
