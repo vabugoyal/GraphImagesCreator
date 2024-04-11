@@ -1,3 +1,5 @@
+import os.path
+
 import networkx as nx
 import matplotlib
 matplotlib.use('Agg')
@@ -375,6 +377,9 @@ def captureGraph(G, nodeColors, edgeColors, weighted):
         ax = plt.gca()
         ax.margins(0.20)
         plt.axis("off")
+        dir = 'static/output'
+        if not os.path.exists(dir):
+            os.makedirs(dir)
         plt.savefig(f"static/output/graph{PLOTNO}.png")
         plt.figure()
     except Exception as e:

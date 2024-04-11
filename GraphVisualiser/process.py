@@ -1,4 +1,6 @@
 # created by me
+from pathlib import Path
+
 from . import simulation
 import os
 
@@ -11,8 +13,9 @@ def simulateGraph(request):
     3. number of stages in the graph
     """
 
-    # clearing all the files inside output before running the function
-    dir = 'static/output'
+    dir = 'static/output/'
+    if not os.path.exists(dir):
+        os.makedirs(dir)
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))
 
@@ -59,7 +62,8 @@ def simulateGraph(request):
             return
 
     dir = 'static/output'
-    for f in os.listdir(dir):
-        os.remove(os.path.join(dir, f))
+    if os.path.exists(dir):
+        for f in os.listdir(dir):
+            os.remove(os.path.join(dir, f))
 
     simulation.start(g, numberofnodes, algo.lower())
