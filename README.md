@@ -1,3 +1,4 @@
-This creates the images which will help me simulate to different graph algorithms.
-This exposes a solve api where we can make a request for some algo and a graph
-then this will return images required to simulate algo on that graph.
+[Image Creator Live](https://graph-visualiser.onrender.com)
+/solve api takes the query params and returns a zip file which 
+contain images for algo simulation.
+
