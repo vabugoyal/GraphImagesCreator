@@ -1,8 +1,11 @@
 import networkx as nx
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pandas as pd
 import collections
 import heapq
+import dataframe_image as dfi
 from bokeh.io import export_png
 from bokeh.models import ColumnDataSource, DataTable, TableColumn
 
@@ -349,6 +352,7 @@ def captureGraph(G, nodeColors, edgeColors, weighted):
     df = df.fillna(df.max().max())
     pos = nx.kamada_kawai_layout(G, dist=df.to_dict())
     nodesize = 1000
+
     if (G.number_of_nodes() >= 7) : nodesize = 800
     if (G.number_of_nodes() >= 10): nodesize = 500
     options = {
