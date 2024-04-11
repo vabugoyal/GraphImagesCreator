@@ -58,7 +58,6 @@ def simulateGraph(request):
         except:
             return
 
-    print(g)
     dir = 'static/output'
     for f in os.listdir(dir):
         os.remove(os.path.join(dir, f))

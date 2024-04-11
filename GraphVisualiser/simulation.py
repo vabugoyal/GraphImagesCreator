@@ -2,9 +2,8 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import pandas as pd
 import collections
-import dataframe_image as dfi
 import heapq
-from bokeh.io import export_png, export_svgs
+from bokeh.io import export_png
 from bokeh.models import ColumnDataSource, DataTable, TableColumn
 
 pd.set_option("display.max_rows", None, "display.max_columns", None)
