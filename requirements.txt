@@ -12,7 +12,7 @@ click==8.1.7
 contourpy==1.2.1
 cssutils==2.10.2
 cycler==0.12.1
-dataframe-image==0.2.3
+dataframe-image==0.1.2
 defusedxml==0.7.1
 Django==5.0.4
 fastjsonschema==2.19.1
